@@ -1,11 +1,3 @@
-.container {
-  min-height: 100vh;
-  max-width: 110ch;
-  padding: 3ch 2ch;
-  margin: auto;
-  height: 100vh;
-}
-
 .underline {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   background-repeat: no-repeat;
