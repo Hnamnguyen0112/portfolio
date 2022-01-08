@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     window.addEventListener('devtoolschange', function (event) {
-      // setDevtoolStatus(event.detail.isOpen)
+      setDevtoolStatus(event.detail.isOpen)
     })
   }, [])
 
