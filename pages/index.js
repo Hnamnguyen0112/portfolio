@@ -1,12 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import MainMenu from '../components/MainMenu'
 import Footer from '../components/Footer'
 import AboutMe from '../components/AboutMe'
-import Experience from '../components/Experience'
 import Project from '../components/Project'
 import Welcome from '../components/Welcome'
+import 'devtools-detect'
 
 export default function Home() {
   const [devtoolStatus, setDevtoolStatus] = useState(false)
