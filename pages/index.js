@@ -22,10 +22,17 @@ export default function Home() {
     },
   ]
 
-  useEffect(() => {
-    window.addEventListener('devtoolschange', function (event) {
+  const handleDevtoolDetect = (event) => {
+    if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
       setDevtoolStatus(event.detail.isOpen)
-    })
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('devtoolschange', handleDevtoolDetect)
+    return () => {
+      window.removeEventListener('devtoolschange', handleDevtoolDetect)
+    }
   }, [])
 
   return (
