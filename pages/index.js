@@ -1,7 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import MainMenu from '../components/MainMenu'
+import Footer from '../components/Footer'
+import AboutMe from '../components/AboutMe'
+import Experience from '../components/Experience'
+import Project from '../components/Project'
+import Welcome from '../components/Welcome'
 
 export default function Home() {
+  const [devtoolStatus, setDevtoolStatus] = useState(false)
   const project = [
     {
       name: 'Hidden Nginx',
@@ -15,6 +23,12 @@ export default function Home() {
     },
   ]
 
+  useEffect(() => {
+    window.addEventListener('devtoolschange', function (event) {
+      // setDevtoolStatus(event.detail.isOpen)
+    })
+  }, [])
+
   return (
     <div>
       <Head>
@@ -23,108 +37,12 @@ export default function Home() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="absolute top-10 right-0 mr-5 flex gap-x-4">
-        <a href="https://github.com/Hnamnguyen0112" rel="noreferrer" target="_blank">
-          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-               shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="28" width="28"
-               style={{ color: '#fff' }}>
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/namnguyen0112/" rel="noreferrer" target="_blank">
-          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-               shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="28" width="28"
-               style={{ color: '#fff' }}>
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-        </a>
-        <a href="https://twitter.com/_alexnguyennn" rel="noreferrer" target="_blank">
-          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-               shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="28" width="28"
-               style={{ color: '#fff' }}>
-            <path
-              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-          </svg>
-        </a>
-        <a href="mailto:alexnguyenth96@gmail.com" rel="noreferrer" target="_blank">
-          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-               shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="28" width="28"
-               style={{ color: '#fff' }}>
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <path d="M22 6l-10 7L2 6" />
-          </svg>
-        </a>
-      </div>
-
-      <div className={'mx-auto max-w-xl flex'}>
-        <p className="text-6xl font-bold my-auto mr-auto">Nam Nguyen</p>
-        <Image src={'/avatar.jpeg'} alt="avatar" className="rounded-full" width={150} height={150} />
-      </div>
-
-      <div className="max-w-xl mx-auto">
-        <p className="text-xl">
-          <br />
-          <span className="text-3xl font-semibold">
-          👋 Hey! I&apos;m Nam, but you can call me Alex
-        </span>
-          <br />
-          nice to meet you btw!
-        </p>
-      </div>
-
-      <div id="about-me" className="mt-20 mx-auto max-w-xl min-w-0 p-4 text-white bg-black rounded-lg border-white border">
-        <p className="text-xl mb-4 font-semibold">#About me</p>
-        <p>
-          I&apos;m building diverse & highly accessible applications for everyone, also working as a Software Engineer
-          in Vietnam.
-        </p>
-      </div>
-
-      <div id="project" className="max-w-5xl mx-auto mt-20">
-        <p className="text-3xl">#Project</p>
-      </div>
-      <div className="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-        {project && project.map((item, key) =>
-          <div key={key} className="w-full bg-black border border-white p-6 rounded-lg shadow-lg">
-            <div id="header" className="flex items-center mb-4">
-              <div className="w-20 rounded-full border-2 border-gray-300">
-                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-                     shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="76" width="76"
-                     style={{ color: '#fff' }}>
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-                </svg>
-              </div>
-              <div id="header-text" className="leading-5 ml-6 w-2/3 break-words">
-                <h4 id="name" className="text-xl font-semibold">{item.name}</h4>
-                <p id="job" className="font-semibold text-blue-600">{item.title}</p>
-              </div>
-            </div>
-            <div id="quote">
-              <q className="italic text-white">{item.description}</q>
-            </div>
-          </div>,
-        )}
-      </div>
-
-      <div id="experience" className="max-w-5xl mx-auto mt-20">
-        <p className="text-3xl">#Experience</p>
-      </div>
-      <div className="max-w-5xl mx-auto mt-10 mb-20 flex">
-        <div className="mx-auto">
-          <Image className="m-auto" src={"/wip.png"} alt="wip" width={200} height={150}/>
-        </div>
-      </div>
-
-      <div className="bg-black border border-white rounded-lg">
-        <div className="max-w-2xl mx-auto text-white py-10">
-          <div className="flex flex-col md:flex-row md:justify-between items-center text-sm text-white">
-            <p className="order-2 md:order-1 mt-8 md:mt-0"> &copy; Nam Nguyen, 2021. </p>
-          </div>
-        </div>
+      <div className={devtoolStatus ? 'hidden' : 'block'}>
+        <MainMenu />
+        <Welcome />
+        <AboutMe />
+        <Project project={project} />
+        <Footer />
       </div>
     </div>
   )
