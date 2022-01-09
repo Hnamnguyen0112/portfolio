@@ -141,7 +141,7 @@ export default function Home() {
                 <Project project={project}/>
               </Tab.Panel>
               <Tab.Panel className={'bg-black rounded-xl px-3 focus:outline-none'}>
-                <Experience experience={experience}/>
+                <Experience experience={experience} animate={isWeb}/>
               </Tab.Panel>
               <Tab.Panel className={'bg-black rounded-xl px-3 focus:outline-none'}>
 
