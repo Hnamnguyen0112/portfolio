@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { Tab } from '@headlessui/react'
+
 import MainMenu from '../components/MainMenu'
 import Footer from '../components/Footer'
 import AboutMe from '../components/AboutMe'
@@ -8,9 +10,14 @@ import Welcome from '../components/Welcome'
 import Experience from '../components/Experience'
 import 'devtools-detect'
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 export default function Home() {
   const [devtoolStatus, setDevtoolStatus] = useState(false)
   const [isWeb, setIsWeb] = useState()
+  const [categories] = useState(['Project', 'Experience', 'Other'])
 
   const project = [
     {
@@ -110,8 +117,38 @@ export default function Home() {
         <MainMenu />
         <Welcome />
         <AboutMe />
-        <Project project={project} />
-        <Experience experience={experience} animate={isWeb}/>
+        <div className="max-w-4xl mx-auto px-2 py-16 sm:px-0">
+          <Tab.Group>
+            <Tab.List className="flex p-1 space-x-1 bg-black rounded-xl">
+              {categories.map((category) => (
+                <Tab
+                  key={category}
+                  className={({ selected }) =>
+                    classNames(
+                      'w-full py-2.5 text-base leading-5 font-medium rounded-lg focus:outline-none',
+                      selected
+                        ? 'bg-white shadow text-black'
+                        : 'text-white hover:bg-white/[0.12] hover:text-white',
+                    )
+                  }
+                >
+                  {category}
+                </Tab>
+              ))}
+            </Tab.List>
+            <Tab.Panels className="mt-2">
+              <Tab.Panel className={'bg-black rounded-xl px-3 focus:outline-none'}>
+                <Project project={project}/>
+              </Tab.Panel>
+              <Tab.Panel className={'bg-black rounded-xl px-3 focus:outline-none'}>
+                <Experience experience={experience}/>
+              </Tab.Panel>
+              <Tab.Panel className={'bg-black rounded-xl px-3 focus:outline-none'}>
+
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+        </div>
         <Footer />
       </div>
     </div>

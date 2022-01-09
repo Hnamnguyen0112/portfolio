@@ -5,8 +5,7 @@ import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/solid'
 
 export default function Experience(props) {
   return (
-    <div className="max-w-4xl mx-auto mt-20">
-      <p className="text-3xl">#Experience</p>
+    <div className="max-w-4xl mx-auto">
       <VerticalTimeline layout={'1-column-left'} animate={props.animate}>
         {props.experience && props.experience.map((item, key) =>
           <VerticalTimelineElement

@@ -1,7 +1,6 @@
 export default function Project(props) {
   return (
-    <div className="max-w-5xl mx-auto mt-20">
-      <p className="text-3xl">#Project</p>
+    <div className="max-w-5xl mx-auto">
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
         {props.project && props.project.map((item, key) =>
           <div key={key} className="w-full bg-black border border-white p-6 rounded-lg shadow-lg">
