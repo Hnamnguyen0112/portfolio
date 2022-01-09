@@ -7,9 +7,9 @@ import { useContext } from 'react'
 
 export default function Experience(props) {
   const { mode } = useContext(AppContext)
-  const contentStyle = mode ? { background: '#000', color: '#fff', boxShadow: 'none', border: '2px solid #fff' } : {}
-  const contentArrowStyle = mode ? { borderRight: '7px solid #fff' } : { borderRight: '7px solid #fff' }
-  const iconStyle = mode ? { background: '#000', color: '#fff' } : { background: 'rgb(252 211 77 / 1)', color: '#fff' }
+  const contentStyle = mode ? { background: '#000', color: '#fff', boxShadow: 'none', border: '2px solid #fff' } : { background: 'rgb(254 243 199 / 1', boxShadow: 'none' }
+  const contentArrowStyle = mode ? { borderRight: '7px solid #fff' } : { borderRight: '7px solid rgb(254 243 199 / 1' }
+  const iconStyle = mode ? { background: '#000', color: '#fff' } : { background: 'rgb(252 211 77 / 1)', color: '#fff', boxShadow: 'none' }
 
   return (
     <div className="max-w-4xl mx-auto">
