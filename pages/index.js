@@ -10,24 +10,26 @@ import 'devtools-detect'
 
 export default function Home() {
   const [devtoolStatus, setDevtoolStatus] = useState(false)
+  const [isWeb, setIsWeb] = useState()
+
   const project = [
     {
       name: 'Hidden Nginx',
       title: 'xdu2hnn6qkmv44kwgv74w6e5cgprdrmgab4lppgnh6nvub6vvd7vuiad.onion',
       description: 'A web application which deployed through a Tor hidden service on a Rasberry Pi server.',
-      type: 'text'
+      type: 'text',
     },
     {
       name: 'Go Generator',
       title: 'https://github.com/Hnamnguyen0112/GoGenerate',
       description: 'A PHP template generator written in Go.',
-      type: 'git'
+      type: 'git',
     },
     {
       name: 'Papaya Pro',
       title: 'https://pro.papaya.asia',
       description: 'Products that integrate applications from the largest and most reputable insurers.',
-      type: 'web'
+      type: 'web',
     },
   ]
 
@@ -38,7 +40,7 @@ export default function Home() {
       position: 'Full-stack Developer',
       language: 'PHP/MySQL/Javascript development',
       skill: 'Symfony | VueJS | ReactJS | Docker | CI ',
-      type: 'work'
+      type: 'work',
     },
     {
       name: 'iDealogic',
@@ -46,7 +48,7 @@ export default function Home() {
       position: 'Full-stack Developer',
       language: 'PHP/MySQL/Javascript development',
       skill: 'Lumen | ReactJS | Docker',
-      type: 'work'
+      type: 'work',
     },
     {
       name: 'Neolab VN',
@@ -54,7 +56,7 @@ export default function Home() {
       position: 'Full-stack Developer',
       language: 'PHP/MySQL/Javascript development',
       skill: 'Laravel | VueJS | Docker',
-      type: 'work'
+      type: 'work',
     },
     {
       name: 'Ambition VN',
@@ -62,7 +64,7 @@ export default function Home() {
       position: 'Full-stack Developer',
       language: 'PHP/MySQL/Javascript development',
       skill: 'Laravel | VueJS | Docker',
-      type: 'work'
+      type: 'work',
     },
     {
       name: 'LeanTech',
@@ -70,7 +72,7 @@ export default function Home() {
       position: 'Intern & Developer',
       language: 'PHP/MySQL/Javascript development',
       skill: 'Golang | ReactJS | Docker',
-      type: 'work'
+      type: 'work',
     },
     {
       name: 'FPT APTECH',
@@ -78,17 +80,18 @@ export default function Home() {
       position: 'Student',
       language: '',
       skill: '',
-      type: 'education'
+      type: 'education',
     },
   ]
 
   const handleDevtoolDetect = (event) => {
-    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    if (isWeb) {
       setDevtoolStatus(event.detail.isOpen)
     }
   }
 
   useEffect(() => {
+    setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
     window.addEventListener('devtoolschange', handleDevtoolDetect)
     return () => {
       window.removeEventListener('devtoolschange', handleDevtoolDetect)
@@ -108,7 +111,7 @@ export default function Home() {
         <Welcome />
         <AboutMe />
         <Project project={project} />
-        <Experience experience={experience} />
+        <Experience experience={experience} animate={isWeb}/>
         <Footer />
       </div>
     </div>

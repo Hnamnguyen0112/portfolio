@@ -7,7 +7,7 @@ export default function Experience(props) {
   return (
     <div className="max-w-4xl mx-auto mt-20">
       <p className="text-3xl">#Experience</p>
-      <VerticalTimeline layout={'1-column-left'}>
+      <VerticalTimeline layout={'1-column-left'} animate={props.animate}>
         {props.experience && props.experience.map((item, key) =>
           <VerticalTimelineElement
             key={key}
