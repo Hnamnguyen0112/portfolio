@@ -12,7 +12,7 @@ export default function Experience(props) {
   const iconStyle = mode ? { background: '#000', color: '#fff' } : { background: '#7DD3FC', color: '#fff', boxShadow: 'none' }
 
   return (
-    <div className="max-w-4xl mx-auto text-white">
+    <div className="text-white">
       <VerticalTimeline layout={'1-column-left'} animate={props.animate} lineColor={mode ? 'white' : '#7DD3FC'}>
         {props.experience && props.experience.map((item, key) =>
           <VerticalTimelineElement

@@ -1,3 +1,4 @@
+import 'devicon/devicon.min.css'
 import '../styles/globals.css'
 import { AppWrapper } from '../context/state'
 

@@ -11,6 +11,104 @@ import Experience from '../components/Experience'
 import 'devtools-detect'
 import Mode from '../components/Mode'
 import { AppContext } from '../context/state'
+import Skill from '../components/Skill'
+
+const project = [
+  {
+    name: 'Hidden Nginx',
+    stack: 'Nginx | Raspberry Pi | HTML',
+    description: 'A web application which deployed through a Tor hidden service on a Rasberry Pi server.',
+    type: 'text',
+  },
+  {
+    name: 'Go Generator',
+    stack: 'Go',
+    description: 'A PHP template generator written in Go.',
+    type: 'git',
+  },
+  {
+    name: 'Portfolio',
+    stack: 'NestJS | ReactJS | Tailwind',
+    description: 'My portfolio',
+    type: 'web',
+  },
+]
+
+const experience = [
+  {
+    name: '.NFQ ASIA',
+    date: 'Nov 2021 - present',
+    position: 'Full-stack Developer',
+    language: 'PHP/MySQL/Javascript development',
+    skill: 'Symfony | VueJS | ReactJS | Docker | CI ',
+    type: 'work',
+  },
+  {
+    name: 'iDealogic',
+    date: 'Jun 2021 - Oct 2021',
+    position: 'Full-stack Developer',
+    language: 'PHP/MySQL/Javascript development',
+    skill: 'Lumen | ReactJS | Docker',
+    type: 'work',
+  },
+  {
+    name: 'Neolab VN',
+    date: 'Jul 2020 - May 2021',
+    position: 'Full-stack Developer',
+    language: 'PHP/MySQL/Javascript development',
+    skill: 'Laravel | VueJS | Docker',
+    type: 'work',
+  },
+  {
+    name: 'Ambition VN',
+    date: 'May 2019 - June 2020',
+    position: 'Full-stack Developer',
+    language: 'PHP/MySQL/Javascript development',
+    skill: 'Laravel | VueJS | Docker',
+    type: 'work',
+  },
+  {
+    name: 'LeanTech',
+    date: 'Feb 2018 - Apr 2019',
+    position: 'Intern & Developer',
+    language: 'PHP/MySQL/Javascript development',
+    skill: 'Golang | ReactJS | Docker',
+    type: 'work',
+  },
+  {
+    name: 'FPT APTECH',
+    date: 'Feb 2017 - Aug 2018',
+    position: 'IT Student',
+    language: '',
+    skill: '',
+    type: 'education',
+  },
+]
+
+const skill = {
+  tech: [
+    { icon: 'devicon-typescript-plain colored', name: 'Typescript' },
+    { icon: 'devicon-html5-plain colored', name: 'HTML' },
+    { icon: 'devicon-go-plain colored', name: 'Go' },
+    { icon: 'devicon-css3-plain colored', name: 'CSS' },
+    { icon: 'devicon-javascript-plain colored', name: 'Javascript' },
+    { icon: 'devicon-laravel-plain colored', name: 'Laravel' },
+    { icon: 'devicon-mysql-plain colored', name: 'MySQL' },
+    { icon: 'devicon-nestjs-plain colored', name: 'NestJS' },
+    { icon: 'devicon-nginx-original colored', name: 'Nginx' },
+    { icon: 'devicon-react-original colored', name: 'ReactJS' },
+    { icon: 'devicon-tailwindcss-original-wordmark colored', name: 'Tailwindcss' },
+    { icon: 'devicon-storybook-plain colored', name: 'Storybook' },
+    { icon: 'devicon-vuejs-plain colored', name: 'VueJS' },
+  ],
+  tool: [
+    { icon: 'devicon-azure-plain colored', name: 'Azure Devops' },
+    { icon: 'devicon-docker-plain colored', name: 'Docker' },
+    { icon: 'devicon-git-plain colored', name: 'Git' },
+    { icon: 'devicon-jira-plain colored', name: 'Jira' },
+    { icon: 'devicon-ubuntu-plain colored', name: 'Ubuntu' },
+  ],
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -22,91 +120,19 @@ export default function Home() {
   const [categories] = useState(['Project', 'Experience', 'Skill'])
   const { mode } = useContext(AppContext)
 
-  const project = [
-    {
-      name: 'Hidden Nginx',
-      stack: 'Nginx | Raspberry Pi | HTML',
-      description: 'A web application which deployed through a Tor hidden service on a Rasberry Pi server.',
-      type: 'text',
-    },
-    {
-      name: 'Go Generator',
-      stack: 'Go',
-      description: 'A PHP template generator written in Go.',
-      type: 'git',
-    },
-    {
-      name: 'Papaya Pro',
-      stack: 'NestJS | ReactJS | Tailwind',
-      description: 'Products that integrate applications from the largest and most reputable insurers.',
-      type: 'web',
-    },
-  ]
-
-  const experience = [
-    {
-      name: '.NFQ ASIA',
-      date: 'Nov 2021 - present',
-      position: 'Full-stack Developer',
-      language: 'PHP/MySQL/Javascript development',
-      skill: 'Symfony | VueJS | ReactJS | Docker | CI ',
-      type: 'work',
-    },
-    {
-      name: 'iDealogic',
-      date: 'Jun 2021 - Oct 2021',
-      position: 'Full-stack Developer',
-      language: 'PHP/MySQL/Javascript development',
-      skill: 'Lumen | ReactJS | Docker',
-      type: 'work',
-    },
-    {
-      name: 'Neolab VN',
-      date: 'Jul 2020 - May 2021',
-      position: 'Full-stack Developer',
-      language: 'PHP/MySQL/Javascript development',
-      skill: 'Laravel | VueJS | Docker',
-      type: 'work',
-    },
-    {
-      name: 'Ambition VN',
-      date: 'May 2019 - June 2020',
-      position: 'Full-stack Developer',
-      language: 'PHP/MySQL/Javascript development',
-      skill: 'Laravel | VueJS | Docker',
-      type: 'work',
-    },
-    {
-      name: 'LeanTech',
-      date: 'Feb 2018 - Apr 2019',
-      position: 'Intern & Developer',
-      language: 'PHP/MySQL/Javascript development',
-      skill: 'Golang | ReactJS | Docker',
-      type: 'work',
-    },
-    {
-      name: 'FPT APTECH',
-      date: 'Feb 2017 - Aug 2018',
-      position: 'IT Student',
-      language: '',
-      skill: '',
-      type: 'education',
-    },
-  ]
-
   const handleDevtoolDetect = (event) => {
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
       setDevtoolStatus(event.detail.isOpen)
     }
   }
 
-  useEffect(() => {
-    setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
-    window.addEventListener('devtoolschange', handleDevtoolDetect)
-    return () => {
-      window.removeEventListener('devtoolschange', handleDevtoolDetect)
-    }
-  }, [])
+  // useEffect(() => {
+  //   setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
+  //   window.addEventListener('devtoolschange', handleDevtoolDetect)
+  //   return () => {
+  //     window.removeEventListener('devtoolschange', handleDevtoolDetect)
+  //   }
+  // }, [])
 
   return (
     <div className={'px-5 pt-40 ' + (mode ? 'bg-black text-white' : 'bg-sky-50 text-slate-900')}>
@@ -129,7 +155,7 @@ export default function Home() {
                   key={category}
                   className={({ selected }) =>
                     classNames(
-                      'w-full py-2.5 text-base leading-5 font-medium rounded-lg focus:outline-none',
+                      'w-full py-2.5 text-base leading-5 font-medium rounded-lg focus:outline-none transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300',
                       selected
                         ? ('shadow ' + (mode ? 'bg-white text-black' : 'bg-sky-300 text-white'))
                         : (mode ? 'text-white hover:bg-white hover:text-black' : 'text-slate-900 hover:bg-sky-200 hover:text-white'),
@@ -148,7 +174,7 @@ export default function Home() {
                 <Experience experience={experience} animate={isWeb} />
               </Tab.Panel>
               <Tab.Panel className={'rounded-xl px-3 focus:outline-none ' + (mode ? 'bg-black' : '')}>
-
+                <Skill skill={skill} />
               </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
