@@ -10,7 +10,7 @@ export default function Mode() {
       <Switch
         checked={mode}
         onChange={setMode}
-        className={`${mode ? 'bg-slate-50' : 'bg-amber-300'}
+        className={`${mode ? 'bg-slate-50' : 'bg-sky-300'}
           relative inline-flex flex-shrink-0 h-[32px] w-[68px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
       >
         <span className="sr-only">Use setting</span>

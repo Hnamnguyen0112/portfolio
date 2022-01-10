@@ -3,15 +3,15 @@ import { AppContext } from '../../context/state'
 
 export default function Project(props) {
   const { mode } = useContext(AppContext)
-  const color = mode ? '#fff' : '#0F182A'
+  const color = mode ? '#fff' : '#7DD3FC'
 
   return (
     <div className="max-w-5xl mx-auto">
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
         {props.project && props.project.map((item, key) =>
-          <div key={key} className={'w-full border-2 p-6 rounded-lg shadow-lg ' + (mode ? 'bg-black border-white' : 'border-amber-200 bg-amber-100')}>
+          <div key={key} className={'w-full border-2 p-6 rounded-lg shadow-lg ' + (mode ? 'bg-black border-white' : 'border-sky-200 bg-sky-100')}>
             <div id="header" className="flex items-center mb-4">
-              <div className={'w-20 rounded-full border-2 pt-1 ' + (mode ? 'border-gray-300 ' : 'border-slate-900')}>
+              <div className={'w-20 rounded-full border-2 pt-1 ' + (mode ? 'border-gray-300 ' : 'border-sky-300')}>
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
                      shapeRendering="geometricPrecision" viewBox="0 0 24 24" className="contact" height="70"
                      width="70"

@@ -3,7 +3,7 @@ import { AppContext } from '../../context/state'
 
 export default function MainMenu() {
   const { mode } = useContext(AppContext)
-  const color = mode ? '#fff' : 'rgb(120 53 15 / 1)'
+  const color = mode ? '#fff' : '#0F182A'
   return (
     <div className="absolute top-10 right-0 mr-5 flex gap-x-4">
       <a href="https://github.com/Hnamnguyen0112" rel="noreferrer" target="_blank">

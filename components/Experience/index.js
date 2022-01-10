@@ -7,13 +7,13 @@ import { useContext } from 'react'
 
 export default function Experience(props) {
   const { mode } = useContext(AppContext)
-  const contentStyle = mode ? { background: '#000', color: '#fff', boxShadow: 'none', border: '2px solid #fff' } : { background: 'rgb(254 243 199 / 1', boxShadow: 'none' }
-  const contentArrowStyle = mode ? { borderRight: '7px solid #fff' } : { borderRight: '7px solid rgb(254 243 199 / 1' }
-  const iconStyle = mode ? { background: '#000', color: '#fff' } : { background: 'rgb(252 211 77 / 1)', color: '#fff', boxShadow: 'none' }
+  const contentStyle = mode ? { background: '#000', color: '#fff', boxShadow: 'none', border: '2px solid #fff' } : { background: '#7DD3FC', boxShadow: 'none' }
+  const contentArrowStyle = mode ? { borderRight: '7px solid #fff' } : { borderRight: '7px solid #7DD3FC' }
+  const iconStyle = mode ? { background: '#000', color: '#fff' } : { background: '#7DD3FC', color: '#fff', boxShadow: 'none' }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <VerticalTimeline layout={'1-column-left'} animate={props.animate} lineColor={mode ? 'white' : 'rgb(252 211 77 / 1)'}>
+    <div className="max-w-4xl mx-auto text-white">
+      <VerticalTimeline layout={'1-column-left'} animate={props.animate} lineColor={mode ? 'white' : '#7DD3FC'}>
         {props.experience && props.experience.map((item, key) =>
           <VerticalTimelineElement
             key={key}
