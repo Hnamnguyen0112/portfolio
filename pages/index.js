@@ -126,13 +126,13 @@ export default function Home() {
     }
   }
 
-  // useEffect(() => {
-  //   setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
-  //   window.addEventListener('devtoolschange', handleDevtoolDetect)
-  //   return () => {
-  //     window.removeEventListener('devtoolschange', handleDevtoolDetect)
-  //   }
-  // }, [])
+  useEffect(() => {
+    setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
+    window.addEventListener('devtoolschange', handleDevtoolDetect)
+    return () => {
+      window.removeEventListener('devtoolschange', handleDevtoolDetect)
+    }
+  }, [])
 
   return (
     <div className={'px-5 pt-40 ' + (mode ? 'bg-black text-white' : 'bg-sky-50 text-slate-900')}>
