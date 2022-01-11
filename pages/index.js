@@ -97,7 +97,7 @@ const skill = {
     { icon: 'devicon-nestjs-plain colored', name: 'NestJS' },
     { icon: 'devicon-nginx-original colored', name: 'Nginx' },
     { icon: 'devicon-react-original colored', name: 'ReactJS' },
-    { icon: 'devicon-tailwindcss-original-wordmark colored', name: 'Tailwindcss' },
+    { icon: 'devicon-tailwindcss-plain colored', name: 'Tailwindcss' },
     { icon: 'devicon-storybook-plain colored', name: 'Storybook' },
     { icon: 'devicon-vuejs-plain colored', name: 'VueJS' },
   ],
