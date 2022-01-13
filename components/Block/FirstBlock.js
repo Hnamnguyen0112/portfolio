@@ -1,46 +1,21 @@
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/solid'
-
 export function FirstBlock() {
   return (
-    <div className="max-w-full flex-grow p-2 mx-auto bg-white rounded-2xl lg:max-w-home-column">
-      <Disclosure>
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-              <span>What is your refund policy?</span>
-              <ChevronUpIcon
-                className={`${
-                  open ? 'transform rotate-180' : ''
-                } w-5 h-5 text-purple-500`}
-              />
-            </Disclosure.Button>
-            <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-              If you&apos;re unhappy with your purchase for any reason, email us
-              within 90 days and we&apos;ll refund you in full, no questions asked.
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-      <Disclosure as="div" className="mt-2">
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-              <span>Do you offer technical support?</span>
-              <ChevronUpIcon
-                className={`${
-                  open ? 'transform rotate-180' : ''
-                } w-5 h-5 text-purple-500`}
-              />
-            </Disclosure.Button>
-            <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-              No.
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
+    <div className="w-full mx-auto rounded-2xl bg-[#022E53] p-5 text-white font-light mb-6 lg:max-w-home-column">
+      <div className="w-full flex mb-4 items-center">
+        <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
+          <img src="https://i.pravatar.cc/100?img=1" alt="" />
+        </div>
+        <div className="flex-grow pl-3">
+          <h6 className="font-bold text-sm uppercase text-white">Kenzie Edgar.</h6>
+        </div>
+      </div>
+      <div className="w-full">
+        <p className="text-sm leading-tight"><span
+          className="text-lg leading-none italic font-bold text-gray-400 mr-1">&quot;</span>Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Quos sunt ratione dolor exercitationem minima quas itaque saepe quasi
+          architecto vel! Accusantium, vero sint recusandae cum tempora nemo commodi soluta deleniti.<span
+            className="text-lg leading-none italic font-bold text-gray-400 ml-1">&quot;</span></p>
+      </div>
     </div>
   )
 }
