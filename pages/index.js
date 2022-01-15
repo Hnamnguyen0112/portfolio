@@ -128,13 +128,13 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
-    window.addEventListener('devtoolschange', handleDevtoolDetect)
-    return () => {
-      window.removeEventListener('devtoolschange', handleDevtoolDetect)
-    }
-  }, [])
+  // useEffect(() => {
+  //   setIsWeb(!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))
+  //   window.addEventListener('devtoolschange', handleDevtoolDetect)
+  //   return () => {
+  //     window.removeEventListener('devtoolschange', handleDevtoolDetect)
+  //   }
+  // }, [])
 
   return (
     <div className='max-w-screen min-h-screen px-5 pt-40  bg-[#072740] text-white flex flex-col'>
