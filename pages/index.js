@@ -13,6 +13,7 @@ import Mode from '../components/Mode'
 import { AppContext } from '../context/state'
 import Skill from '../components/Skill'
 import { FirstBlock, SecondBlock, ThirdBlock } from '../components/Block'
+import Contact from '../components/Contact'
 
 const project = [
   {
@@ -146,7 +147,7 @@ export default function Home() {
       {!devtoolStatus &&
       <>
         <main className={'flex-grow'}>
-          {/*<Mode />*/}
+          <Mode />
           <MainMenu />
           {mode || <Welcome />}
           {mode || <AboutMe />}
@@ -182,13 +183,7 @@ export default function Home() {
               </Tab.Panels>
             </Tab.Group>
           </div>}
-          {/*{mode &&*/}
-          {/*<div className={'max-w-6xl mx-auto flex flex-col items-center md:flex-row md:items-start md:justify-center gap-x-6 xl:gap-x-10'}>*/}
-          {/*  <FirstBlock />*/}
-          {/*  <SecondBlock />*/}
-          {/*  <ThirdBlock />*/}
-          {/*</div>*/}
-          {/*}*/}
+          {mode && <Contact/>}
         </main>
         <Footer />
       </>}

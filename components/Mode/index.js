@@ -19,7 +19,7 @@ export default function Mode() {
             bg-[#072740] translate-y-1 pointer-events-none inline-block h-[20px] w-[20px] rounded-full shadow-lg transform ring-0 transition ease-in-out duration-200`}
         />
       </Switch>
-     <p className={'ml-3 m-auto hidden sm:block'}>{mode ? 'Profile?' : 'Job?'}</p>
+     <p className={'ml-3 m-auto hidden sm:block'}>{mode ? 'Profile?' : 'Contact?'}</p>
     </div>
   )
 }
