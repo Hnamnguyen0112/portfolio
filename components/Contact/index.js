@@ -57,9 +57,9 @@ export default function Contact(props) {
               {errors?.lastName.message}
             </span>}
           </div>
-          <div className="w-full mt-2">
+          <div className="w-full mt-2 md:col-span-2">
             <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline md:col-span-2"
+              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="email"
               placeholder="Email*"
               {...register('email')}
