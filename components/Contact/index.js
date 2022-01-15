@@ -35,36 +35,36 @@ export default function Contact(props) {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
           <div className="mt-2 w-full">
             <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              className={'w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ' + (errors?.firstName ? 'border-2 border-red-500' : '')}
               type="text"
               placeholder="First Name*"
               name="firstName"
               {...register('firstName')}
             />
-            {errors?.firstName && <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            {errors?.firstName && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.firstName.message}
             </span>}
           </div>
           <div className="w-full mt-2">
             <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              className={'w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ' + (errors?.lastName ? 'border-2 border-red-500' : '')}
               type="text"
               placeholder="Last Name*"
               name="lastName"
               {...register('lastName')}
             />
-            {errors?.lastName && <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            {errors?.lastName && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.lastName.message}
             </span>}
           </div>
           <div className="w-full mt-2 md:col-span-2">
             <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              className={'w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ' + (errors?.email ? 'border-2 border-red-500' : '')}
               type="email"
               placeholder="Email*"
               {...register('email')}
             />
-            {errors?.email && <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            {errors?.email && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.email.message}
             </span>}
           </div>
@@ -72,11 +72,11 @@ export default function Contact(props) {
         <div className="my-4">
           <textarea
             placeholder="Message*"
-            className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+            className={'w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ' + (errors?.message ? 'border-2 border-red-500' : '')}
             name="message"
             {...register('message')}
           />
-          {errors?.message && <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          {errors?.message && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.message.message}
             </span>}
         </div>
