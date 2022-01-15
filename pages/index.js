@@ -14,6 +14,7 @@ import { AppContext } from '../context/state'
 import Skill from '../components/Skill'
 import { FirstBlock, SecondBlock, ThirdBlock } from '../components/Block'
 import Contact from '../components/Contact'
+import Dialog from '../components/Dialog'
 
 const project = [
   {
@@ -186,6 +187,7 @@ export default function Home() {
           {mode && <Contact/>}
         </main>
         <Footer />
+        <Dialog/>
       </>}
     </div>
   )

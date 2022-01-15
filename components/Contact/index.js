@@ -1,8 +1,12 @@
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+import { AppContext } from '../../context/state'
 
-export default function Contact(props) {
+export default function Contact() {
+  const { setDialog, setDialogContent } = useContext(AppContext)
+
   const validationSchema = Yup.object().shape({
     firstName: Yup.string()
       .required('First name is required'),
@@ -21,7 +25,9 @@ export default function Contact(props) {
   const { errors } = formState
 
   function onSubmit(data) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4))
+    setTimeout(() => reset(), 2000)
+    setDialog(true)
+    setDialogContent({ title: 'Temporarily Down for Maintenance', message: 'I am performing scheduled maintenance, and really sorry for this inconvenience.', close: 'Close' })
     return false
   }
 
@@ -41,7 +47,8 @@ export default function Contact(props) {
               name="firstName"
               {...register('firstName')}
             />
-            {errors?.firstName && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
+            {errors?.firstName &&
+            <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.firstName.message}
             </span>}
           </div>
@@ -53,7 +60,8 @@ export default function Contact(props) {
               name="lastName"
               {...register('lastName')}
             />
-            {errors?.lastName && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
+            {errors?.lastName &&
+            <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.lastName.message}
             </span>}
           </div>
@@ -64,7 +72,8 @@ export default function Contact(props) {
               placeholder="Email*"
               {...register('email')}
             />
-            {errors?.email && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
+            {errors?.email &&
+            <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.email.message}
             </span>}
           </div>
@@ -76,7 +85,8 @@ export default function Contact(props) {
             name="message"
             {...register('message')}
           />
-          {errors?.message && <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
+          {errors?.message &&
+          <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">
               {errors?.message.message}
             </span>}
         </div>
