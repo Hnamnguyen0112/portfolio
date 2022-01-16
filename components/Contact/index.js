@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+import emailjs from '@emailjs/browser'
 import { AppContext } from '../../context/state'
 
 export default function Contact() {
@@ -25,10 +26,29 @@ export default function Contact() {
   const { errors } = formState
 
   function onSubmit(data) {
-    setTimeout(() => reset(), 2000)
-    setDialog(true)
-    setDialogContent({ title: 'Temporarily Down for Maintenance', message: 'I am performing scheduled maintenance, and really sorry for this inconvenience.', close: 'Close' })
-    return false
+    return emailjs.send(
+      process.env.EMAIL_JS_SERVICE,
+      process.env.EMAIL_JS_TEMPLATE,
+      data,
+      process.env.EMAIL_JS_USER,
+    )
+      .then(({ status }) => {
+        reset()
+        setDialogContent({
+          title: 'Notification',
+          message: 'Your message has been delivered',
+          close: 'Close',
+        })
+        setDialog(true)
+      }, () => {
+        reset()
+        setDialogContent({
+          title: 'Temporarily Down for Maintenance',
+          message: 'I am performing scheduled maintenance, and really sorry for this inconvenience.',
+          close: 'Close',
+        })
+        setDialog(true)
+      })
   }
 
   return (
