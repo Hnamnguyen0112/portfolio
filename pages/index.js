@@ -8,13 +8,13 @@ import AboutMe from '../components/AboutMe'
 import Project from '../components/Project'
 import Welcome from '../components/Welcome'
 import Experience from '../components/Experience'
-import 'devtools-detect'
 import Mode from '../components/Mode'
-import { AppContext } from '../context/state'
 import Skill from '../components/Skill'
-import { FirstBlock, SecondBlock, ThirdBlock } from '../components/Block'
 import Contact from '../components/Contact'
 import Dialog from '../components/Dialog'
+import { AppContext } from '../context/state'
+
+import 'devtools-detect'
 
 const project = [
   {
@@ -28,12 +28,21 @@ const project = [
     stack: 'Go',
     description: 'A PHP template generator written in Go.',
     type: 'git',
+    url: 'https://github.com/Hnamnguyen0112/GoGenerate'
   },
   {
-    name: 'Portfolio',
-    stack: 'NestJS | ReactJS | Tailwind',
-    description: 'My portfolio',
-    type: 'web',
+    name: 'Ecommerce Boilerplate',
+    stack: 'ReactJS | Tailwind',
+    description: 'A React boilerplate for Ecommerce app using TailwindCSS',
+    type: 'git',
+    url: 'https://github.com/Hnamnguyen0112/ecommerce-react'
+  },
+  {
+    name: 'Storybook Boilerplate',
+    stack: 'NestJS | Storybook | Tailwind',
+    description: 'A Storybook boilerplate base on NestJS framework using PlopJS generator',
+    type: 'git',
+    url: 'https://github.com/Hnamnguyen0112/storybook-generator'
   },
 ]
 

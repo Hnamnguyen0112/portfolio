@@ -19,9 +19,20 @@ export default function Project(props) {
               <h4 id="name" className="w-full text-sm font-medium">{item.stack}</h4>
             </div>
           </div>
-          <div id="quote">
-            <q className='italic text-white'>{item.description}</q>
+          <div className="flex flex-wrap">
+            <q className='italic text-white w-full'>{item.description}</q>
+            {item.type === 'git' &&
+            <a
+              href={item.url}
+              target='_blank'
+              className="bg-white mt-3 border-2 border-white rounded-3xl p-2 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 text-black"
+              rel="noreferrer"
+            >
+              Github
+            </a>
+            }
           </div>
+
         </div>,
       )}
     </div>
