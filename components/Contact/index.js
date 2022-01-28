@@ -110,7 +110,7 @@ export default function Contact() {
               {errors?.message.message}
             </span>}
         </div>
-        <div className="my-2 w-full flex flex-wrap gap-x-4">
+        <div className="my-2 w-full flex flex-wrap gap-x-4 gap-y-2">
           <button
             className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
             type="submit"
@@ -119,8 +119,9 @@ export default function Contact() {
           </button>
           <a
             href="/Nguyen-Thanh-Hai-Nam.pdf"
-            className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
-            download
+            className="sm:mt-0 uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
+            target="_blank"
+            rel="noreferrer"
           >
             Download my resume
           </a>
