@@ -110,13 +110,20 @@ export default function Contact() {
               {errors?.message.message}
             </span>}
         </div>
-        <div className="my-2 w-1/2 lg:w-1/4">
+        <div className="my-2 w-full flex flex-wrap gap-x-4">
           <button
-            className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline text-[#55FCD3]"
+            className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
             type="submit"
           >
             Send Message
           </button>
+          <a
+            href="/Nguyen-Thanh-Hai-Nam.pdf"
+            className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
+            download
+          >
+            Download my resume
+          </a>
         </div>
       </form>
 
@@ -132,7 +139,6 @@ export default function Contact() {
               <i className="fas fa-phone-alt pt-2 pr-2" />
             </div>
             <div className="flex flex-col">
-              <h2 className="text-2xl">Call Me</h2>
               <p className="text-gray-400">Tel: (+84) 933 9898 81</p>
             </div>
           </div>
