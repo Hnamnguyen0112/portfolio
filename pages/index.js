@@ -162,7 +162,7 @@ export default function Home() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Nam Nguyen Portfolio" />
-        <meta property="og:image" content="https://namnguyen.vercel.app/og-avatar.jpeg" />
+        <meta property="og:image" content="https://namnguyen.vercel.app/bongo-trim.png" />
         <meta property="og:description" content="Thanks for comming" />
         <meta property="og:url" content="https://namnguyen.vercel.app" />
       </Head>
