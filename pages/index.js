@@ -26,7 +26,7 @@ const project = [
   {
     name: 'Go Generator',
     stack: 'Go',
-    description: 'A PHP template generator written in Go.',
+    description: 'A PHP template generator written in Go. (Deprecated)',
     type: 'git',
     url: 'https://github.com/Hnamnguyen0112/GoGenerate'
   },
