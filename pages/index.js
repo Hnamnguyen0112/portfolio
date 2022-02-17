@@ -112,6 +112,7 @@ const skill = {
     { icon: 'devicon-tailwindcss-plain', name: 'Tailwindcss' },
     { icon: 'devicon-storybook-plain', name: 'Storybook' },
     { icon: 'devicon-vuejs-plain', name: 'VueJS' },
+    { icon: 'devicon-graphql-plain', name: 'GraphQL'}
   ],
   tool: [
     { icon: 'devicon-azure-plain', name: 'Azure Devops' },
