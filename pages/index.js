@@ -163,7 +163,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Nam Nguyen Portfolio" />
         <meta property="og:image" content="https://namnguyen.vercel.app/bongo-trim.png" />
-        <meta property="og:description" content="Thanks for comming" />
+        <meta property="og:description" content="Thanks for coming" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://namnguyen.vercel.app" />
       </Head>
       {!devtoolStatus &&
