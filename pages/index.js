@@ -39,10 +39,17 @@ const project = [
   },
   {
     name: 'Storybook Boilerplate',
-    stack: 'NestJS | Storybook | Tailwind',
-    description: 'A Storybook boilerplate base on NestJS framework using PlopJS generator',
+    stack: 'NextJS | Storybook | Tailwind',
+    description: 'A Storybook boilerplate base on NextJS framework using PlopJS generator',
     type: 'git',
     url: 'https://github.com/Hnamnguyen0112/storybook-generator'
+  },
+  {
+    name: 'NestJS Graphql CQRS Starter (WIP)',
+    stack: 'NestJS | GraphQL',
+    description: 'A NestJS starter based on CQRS architecture',
+    type: 'git',
+    url: 'https://github.com/Hnamnguyen0112/nestjs-graphql-cqrs-starter'
   },
 ]
 
