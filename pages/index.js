@@ -127,6 +127,8 @@ const skill = {
     { icon: 'devicon-git-plain', name: 'Git' },
     { icon: 'devicon-jira-plain', name: 'Jira' },
     { icon: 'devicon-ubuntu-plain', name: 'Ubuntu' },
+    { icon: 'devicon-kubernetes-plain', name: 'Kubernetes' },
+    { icon: 'devicon-amazonwebservices-original colored', name: 'AWS' },
   ],
 }
 
