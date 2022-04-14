@@ -56,18 +56,10 @@ const project = [
 const experience = [
   {
     name: '.NFQ ASIA',
-    date: 'Nov 2021 - present',
+    date: 'Jun 2021 - Present',
     position: 'Full-stack Developer',
     language: 'PHP/MySQL/Javascript development',
     skill: 'Symfony | VueJS | ReactJS | Docker | CI ',
-    type: 'work',
-  },
-  {
-    name: 'iDealogic',
-    date: 'Jun 2021 - Oct 2021',
-    position: 'Full-stack Developer',
-    language: 'PHP/MySQL/Javascript development',
-    skill: 'Lumen | ReactJS | Docker',
     type: 'work',
   },
   {
