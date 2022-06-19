@@ -52,7 +52,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto mb-12">
+    <div className="max-w-6xl mx-auto mb-12 animate-fade-in-up">
       <form onSubmit={handleSubmit(onSubmit)}
             className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
         <div className="flex">
