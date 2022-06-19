@@ -56,7 +56,7 @@ export default function Contact() {
       <form onSubmit={handleSubmit(onSubmit)}
             className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
         <div className="flex">
-          <h1 className="font-bold uppercase text-5xl text-black">Send me a <br /> message</h1>
+          <h1 className="font-bold uppercase text-4xl text-black">Send me a message</h1>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
           <div className="mt-2 w-full">
