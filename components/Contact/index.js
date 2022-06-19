@@ -52,11 +52,11 @@ export default function Contact() {
   }
 
   return (
-    <div className="container mx-auto my-4 px-4 lg:px-20">
+    <div className="max-w-6xl mx-auto mb-12">
       <form onSubmit={handleSubmit(onSubmit)}
-            className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-[#022E53]">
+            className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-white">
         <div className="flex">
-          <h1 className="font-bold uppercase text-5xl text-[#55FCD3]">Send me a <br /> message</h1>
+          <h1 className="font-bold uppercase text-5xl text-black">Send me a <br /> message</h1>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
           <div className="mt-2 w-full">
@@ -112,14 +112,14 @@ export default function Contact() {
         </div>
         <div className="my-2 w-full flex flex-wrap gap-x-4 gap-y-2">
           <button
-            className="uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
+            className="uppercase text-sm font-bold tracking-wide bg-cyan-600 p-3 rounded-lg focus:outline-none focus:shadow-outline text-white"
             type="submit"
           >
             Send Message
           </button>
           <a
             href="/Nguyen-Thanh-Hai-Nam.pdf"
-            className="sm:mt-0 uppercase text-sm font-bold tracking-wide bg-blue-900 p-3 rounded-lg focus:outline-none focus:shadow-outline text-[#55FCD3]"
+            className="sm:mt-0 uppercase text-sm font-bold tracking-wide bg-cyan-600 p-3 rounded-lg focus:outline-none focus:shadow-outline text-white"
             target="_blank"
             rel="noreferrer"
           >
@@ -129,10 +129,10 @@ export default function Contact() {
       </form>
 
       <div
-        className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
-        <div className="flex flex-col text-white">
-          <h1 className="font-bold uppercase text-4xl my-4 text-[#55FCD3]">Work with me</h1>
-          <p className="text-white">Hi, thank you for taking the time for my portfolio. If you&apos;re looking for a cooperator in your creative idea, feel free to contact me.
+        className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-white rounded-2xl border">
+        <div className="flex flex-col text-black">
+          <h1 className="font-bold uppercase text-4xl my-4 text-black">Work with me</h1>
+          <p>Hi, thank you for taking the time for my portfolio. If you&apos;re looking for a cooperator in your creative idea, feel free to contact me.
           </p>
 
           <div className="flex my-4 w-2/3 lg:w-full">
