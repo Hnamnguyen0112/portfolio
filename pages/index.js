@@ -86,7 +86,7 @@ export default function Home() {
 
   const handleDevtoolDetect = (event) => {
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-      // setDevtoolStatus(event.detail.isOpen)
+      setDevtoolStatus(event.detail.isOpen)
     }
   }
 
