@@ -9,9 +9,11 @@ export default function AboutMe() {
       </div>
       <div className="basis-2/3">
         <MainMenu/>
-        <p className='md:mx-8 mt-5 text-4xl mb-4 font-medium text-black flex'>Hi there! <span className="animate-waving-hand">👋🏻</span></p>
+        <p className='md:mx-8 mt-5 text-5xl mb-4 font-medium text-black flex'>
+          Hi,<br/> I&apos;m Nam! <span className="animate-waving-hand">👋🏻</span>
+        </p>
         <p className='md:mx-4 text-lg lg:text-2xl font-light tracking-wide leading-relaxed'>
-          Fuelled by a passion for designing compelling products, I have a deep desire to excel and continuously improve in my work. Learn more about my journey below.
+          I’m a 25-year-old software engineer from Saigon, Vietnam. I write code, organize projects, and play Valorant.
         </p>
       </div>
     </div>
