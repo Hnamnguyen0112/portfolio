@@ -20,9 +20,9 @@ export default function Header() {
         <div className="flex justify-between">
           <div className="flex space-x-7">
             <div>
-              <a href="/" className="flex items-center py-4 px-2">
+              <Link href="/" className="flex items-center py-4 px-2">
                 <span className="font-medium text-black text-lg">Nam Nguyen</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-3 ">
