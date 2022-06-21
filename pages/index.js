@@ -2,7 +2,6 @@ import AboutMe from '../components/AboutMe'
 import Skill from '../components/Skill'
 import Contact from '../components/Contact'
 
-import 'devtools-detect'
 import Layout from '../layouts'
 
 const experience = [
