@@ -1,21 +1,34 @@
-export function FirstBlock() {
+import React from 'react'
+import moment from 'moment'
+
+function FirstBlock() {
   return (
-    <div className="w-full mx-auto rounded-2xl bg-[#022E53] p-5 text-white font-light mb-6 lg:max-w-home-column">
-      <div className="w-full flex mb-4 items-center">
-        <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-          <img src="https://i.pravatar.cc/100?img=1" alt="" />
+    <div className="w-1/2 mx-auto my-auto">
+      <div className="w-full shadow-2xl subpixel-antialiased rounded h-64 bg-black border-black mx-auto">
+        <div className="flex items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black"
+             id="headerTerminal">
+          <div
+            className="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3"
+            id="closebtn">
+          </div>
+          <div className="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3" id="minbtn">
+          </div>
+          <div className="ml-2 border-green-900 bg-green-500 shadow-inner rounded-full w-3 h-3" id="maxbtn">
+          </div>
+          <div className="mx-auto pr-16" id="terminaltitle">
+            <p className="text-center text-sm">iTerm2</p>
+          </div>
+
         </div>
-        <div className="flex-grow pl-3">
-          <h6 className="font-bold text-sm uppercase text-white">Kenzie Edgar.</h6>
+        <div className="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black" id="console">
+          <p className="pb-1">Last login: ${moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
+          <p className="pb-1">namnguyen:~ admin$ ./init.sh</p>
+          <p className="pb-1">Happy Hacking!</p>
+          <p className="pb-1">...</p>
         </div>
-      </div>
-      <div className="w-full">
-        <p className="text-sm leading-tight"><span
-          className="text-lg leading-none italic font-bold text-gray-400 mr-1">&quot;</span>Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Quos sunt ratione dolor exercitationem minima quas itaque saepe quasi
-          architecto vel! Accusantium, vero sint recusandae cum tempora nemo commodi soluta deleniti.<span
-            className="text-lg leading-none italic font-bold text-gray-400 ml-1">&quot;</span></p>
       </div>
     </div>
   )
 }
+
+export const MemoizedFirstBlock = React.memo(FirstBlock)
