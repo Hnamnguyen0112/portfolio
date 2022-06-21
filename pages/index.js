@@ -104,10 +104,10 @@ export default function Home() {
               href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&amp;display=swap" />
         <link href="/favicon.ico" rel="icon" type="image/x-icon" />
         <meta property="og:title" content="Nam Nguyen Portfolio" />
-        <meta property="og:image" content="https://namnguyen.vercel.app/bongo-trim.png" />
+        <meta property="og:image" content="https://namnguyen.io/bongo-trim.png" />
         <meta property="og:description" content="Thanks for coming" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://namnguyen.vercel.app" />
+        <meta property="og:url" content="https://namnguyen.io" />
       </Head>
       {
         !devtoolStatus &&
