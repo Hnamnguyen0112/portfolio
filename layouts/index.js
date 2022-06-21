@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import moment from 'moment'
 import Footer from '../components/Footer'
 import Dialog from '../components/Dialog'
 import Header from '../components/Header'
