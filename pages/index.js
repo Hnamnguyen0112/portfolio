@@ -1,8 +1,8 @@
-import AboutMe from '../components/AboutMe'
-import Skill from '../components/Skill'
-import Contact from '../components/Contact'
+import AboutMe from '../components/AboutMe';
+import Skill from '../components/Skill';
+import Contact from '../components/Contact';
 
-import Layout from '../layouts'
+import Layout from '../layouts';
 
 const experience = [
   {
@@ -45,7 +45,7 @@ const experience = [
     skill: '',
     type: 'education',
   },
-]
+];
 
 const skill = {
   tech: [
@@ -71,7 +71,7 @@ const skill = {
     { icon: 'devicon-amazonwebservices-original colored', name: 'AWS' },
     { icon: 'devicon-grafana-original colored', name: 'Grafana' },
   ],
-}
+};
 
 export default function Home() {
   return (
@@ -80,5 +80,5 @@ export default function Home() {
       <Skill skill={skill} />
       <Contact />
     </Layout>
-  )
+  );
 }

@@ -1,3 +1,3 @@
-export * from './FirstBlock'
-export * from './SecondBlock'
-export * from './ThirdBlock'
+export * from './FirstBlock';
+export * from './SecondBlock';
+export * from './ThirdBlock';

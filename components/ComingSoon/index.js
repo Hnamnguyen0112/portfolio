@@ -2,7 +2,9 @@ export default function ComingSoon() {
   return (
     <>
       <div className="context">
-        <h1 className="text-3xl md:text-5xl text-rose-300">Comming Soon</h1>
+        <h1 className="text-3xl md:text-5xl text-rose-300 animate-fade-in-down">
+          Comming Soon
+        </h1>
       </div>
       <div className="area">
         <ul className="circles">
@@ -19,5 +21,5 @@ export default function ComingSoon() {
         </ul>
       </div>
     </>
-  )
+  );
 }

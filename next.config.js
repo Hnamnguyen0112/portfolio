@@ -5,4 +5,4 @@ module.exports = {
     EMAIL_JS_TEMPLATE: process.env.EMAIL_JS_TEMPLATE,
     EMAIL_JS_USER: process.env.EMAIL_JS_USER,
   },
-}
+};

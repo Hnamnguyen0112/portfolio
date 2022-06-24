@@ -1,9 +1,9 @@
-import { Fragment, useContext } from 'react'
-import { Dialog as TDialog, Transition } from '@headlessui/react'
-import { AppContext } from '../../context/state'
+import { Fragment, useContext } from 'react';
+import { Dialog as TDialog, Transition } from '@headlessui/react';
+import { AppContext } from '../../context/state';
 
 export default function Dialog() {
-  const { dialog, setDialog, dialogContent } = useContext(AppContext)
+  const { dialog, setDialog, dialogContent } = useContext(AppContext);
 
   return (
     <Transition appear show={dialog} as={Fragment}>
@@ -30,8 +30,8 @@ export default function Dialog() {
             className="inline-block h-screen align-middle"
             aria-hidden="true"
           >
-              &#8203;
-            </span>
+            &#8203;
+          </span>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -49,9 +49,7 @@ export default function Dialog() {
                 {dialogContent.title}
               </TDialog.Title>
               <div className="mt-2">
-                <p className="text-md text-gray-500">
-                  {dialogContent.message}
-                </p>
+                <p className="text-md text-gray-500">{dialogContent.message}</p>
               </div>
 
               <div className="mt-4">
@@ -68,5 +66,5 @@ export default function Dialog() {
         </div>
       </TDialog>
     </Transition>
-  )
+  );
 }

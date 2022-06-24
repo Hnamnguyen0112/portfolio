@@ -1,9 +1,9 @@
-import { useContext } from 'react'
-import { Switch } from '@headlessui/react'
-import { AppContext } from '../../context/state'
+import { useContext } from 'react';
+import { Switch } from '@headlessui/react';
+import { AppContext } from '../../context/state';
 
 export default function Mode() {
-  const { mode, setMode } = useContext(AppContext)
+  const { mode, setMode } = useContext(AppContext);
 
   return (
     <div className="absolute top-10 left-0 ml-5 flex">
@@ -19,7 +19,9 @@ export default function Mode() {
             bg-[#072740] translate-y-1 pointer-events-none inline-block h-[20px] w-[20px] rounded-full shadow-lg transform ring-0 transition ease-in-out duration-200`}
         />
       </Switch>
-     <p className={'ml-3 m-auto hidden sm:block'}>{mode ? 'Profile?' : 'Contact?'}</p>
+      <p className={'ml-3 m-auto hidden sm:block'}>
+        {mode ? 'Profile?' : 'Contact?'}
+      </p>
     </div>
-  )
+  );
 }

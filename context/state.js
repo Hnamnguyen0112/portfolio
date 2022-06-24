@@ -1,11 +1,15 @@
-import { useState, createContext } from 'react'
+import { useState, createContext } from 'react';
 
-export const AppContext = createContext()
+export const AppContext = createContext();
 
 export function AppWrapper({ children }) {
-  const [mode, setMode] = useState(false)
-  const [dialog, setDialog] = useState(false)
-  const [dialogContent, setDialogContent] = useState({ title: '', message: '', close: '' })
+  const [mode, setMode] = useState(false);
+  const [dialog, setDialog] = useState(false);
+  const [dialogContent, setDialogContent] = useState({
+    title: '',
+    message: '',
+    close: '',
+  });
 
   return (
     <AppContext.Provider
@@ -15,10 +19,10 @@ export function AppWrapper({ children }) {
         dialog,
         setDialog,
         dialogContent,
-        setDialogContent
+        setDialogContent,
       }}
     >
       {children}
     </AppContext.Provider>
-  )
+  );
 }
