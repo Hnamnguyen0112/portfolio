@@ -8,7 +8,7 @@ import BlogHeader from '../components/BlogHeader';
 import Layout from '../layouts';
 import { getAllPosts, getPostBySlug } from '../lib/api';
 
-export default function BlogDetail({ data, content, slug }) {
+export default function BlogDetail({ data, content, slug, readingTime }) {
   const router = useRouter();
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />;
@@ -29,6 +29,7 @@ export default function BlogDetail({ data, content, slug }) {
                 title={data.title}
                 coverImage={data.coverImage}
                 date={data.date}
+                readingTime={readingTime}
               />
               <BlogBody content={content} />
             </article>
@@ -40,7 +41,7 @@ export default function BlogDetail({ data, content, slug }) {
 }
 
 export async function getStaticProps({ params }) {
-  const { content, data, slug } = await getPostBySlug(params.slug);
+  const { content, data, slug, readingTime } = await getPostBySlug(params.slug);
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
@@ -54,6 +55,7 @@ export async function getStaticProps({ params }) {
       data,
       slug,
       content: mdxSource,
+      readingTime,
     },
   };
 }

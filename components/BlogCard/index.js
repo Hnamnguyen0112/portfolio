@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import DateFormatter from '../DateFormatter';
 
-function BlogCard({ title, date, excerpt, slug }) {
+function BlogCard({ title, date, excerpt, slug, readingTime }) {
   return (
     <section>
       <div className="my-4 py-4 border-b">
@@ -12,6 +12,7 @@ function BlogCard({ title, date, excerpt, slug }) {
           </Link>
         </h3>
         <DateFormatter dateString={date} />
+        <span className="mx-4 text-gray-400">{readingTime}</span>
         <p className="mt-4 italic">{excerpt}</p>
         <Link href="/[slug]" as={`/${slug}`}>
           <a className="text-blue-500 mt-4 mb-2 block">Read more</a>

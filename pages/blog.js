@@ -17,6 +17,7 @@ export default function Blog({ posts }) {
               date={post.data.date}
               slug={post.slug}
               excerpt={post.data.excerpt}
+              readingTime={post.readingTime}
             />
           ))}
         </div>
@@ -29,6 +30,7 @@ export default function Blog({ posts }) {
 
 export const getStaticProps = () => {
   const posts = getAllPosts();
+  console.log(posts);
   return {
     props: {
       posts,
