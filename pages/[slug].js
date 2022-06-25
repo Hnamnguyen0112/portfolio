@@ -19,7 +19,7 @@ export default function BlogDetail({ data, content, slug }) {
           <p>Loading…</p>
         ) : (
           <>
-            <article className="mb-32">
+            <article className="animate-fade-in-down mb-32">
               <Head>
                 <title>{data.title}</title>
                 <meta property="og:image" content={data.url} />
@@ -39,14 +39,14 @@ export default function BlogDetail({ data, content, slug }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug);
-  const content = await serialize(post.content || '');
+  const { content, data, slug } = await getPostBySlug(params.slug);
+  const mdxSource = await serialize(content);
 
   return {
     props: {
-      data: post.data,
-      slug: post.slug,
-      content,
+      data,
+      slug,
+      content: mdxSource,
     },
   };
 }
