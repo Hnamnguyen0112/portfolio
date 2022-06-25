@@ -40,7 +40,13 @@ export default function BlogDetail({ data, content, slug }) {
 
 export async function getStaticProps({ params }) {
   const { content, data, slug } = await getPostBySlug(params.slug);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [],
+    },
+    scope: data,
+  });
 
   return {
     props: {
