@@ -1,7 +1,6 @@
 import AboutMe from '../components/AboutMe';
-import Skill from '../components/Skill';
 import Contact from '../components/Contact';
-
+import Skill from '../components/Skill';
 import Layout from '../layouts';
 
 const experience = [

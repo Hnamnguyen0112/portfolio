@@ -2,8 +2,9 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
+import { AcademicCapIcon, BriefcaseIcon } from '@heroicons/react/solid';
+
 import 'react-vertical-timeline-component/style.min.css';
-import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/solid';
 
 export default function Experience(props) {
   return (

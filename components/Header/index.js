@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import NextLink from '../NextLink';
+import { Menu, Transition } from '@headlessui/react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import NextLink from '../NextLink';
 
 export default function Header() {
   const router = useRouter();

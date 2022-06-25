@@ -1,5 +1,6 @@
 import { Fragment, useContext } from 'react';
 import { Dialog as TDialog, Transition } from '@headlessui/react';
+
 import { AppContext } from '../../context/state';
 
 export default function Dialog() {

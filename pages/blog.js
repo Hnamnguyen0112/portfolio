@@ -1,7 +1,7 @@
-import Layout from '../layouts';
 import BlogCard from '../components/BlogCard';
-import { getAllPosts } from '../lib/api';
 import ComingSoon from '../components/ComingSoon';
+import Layout from '../layouts';
+import { getAllPosts } from '../lib/api';
 
 export default function Blog({ posts }) {
   return (

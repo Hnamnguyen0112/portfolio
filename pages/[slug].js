@@ -1,11 +1,12 @@
-import { useRouter } from 'next/router';
-import Layout from '../layouts';
 import ErrorPage from 'next/error';
-import { getAllPosts, getPostBySlug } from '../lib/api';
-import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
-import BlogHeader from '../components/BlogHeader';
+import { useRouter } from 'next/router';
+import { serialize } from 'next-mdx-remote/serialize';
+
 import BlogBody from '../components/BlogBody';
+import BlogHeader from '../components/BlogHeader';
+import Layout from '../layouts';
+import { getAllPosts, getPostBySlug } from '../lib/api';
 
 export default function BlogDetail({ data, content, slug }) {
   const router = useRouter();

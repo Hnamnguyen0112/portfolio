@@ -1,6 +1,7 @@
+import { AppWrapper } from '../context/state';
+
 import 'devicon/devicon.min.css';
 import '../styles/globals.css';
-import { AppWrapper } from '../context/state';
 
 function MyApp({ Component, pageProps }) {
   return (

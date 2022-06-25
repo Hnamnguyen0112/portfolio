@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
-import Dialog from '../components/Dialog';
-import Header from '../components/Header';
+
 import 'devtools-detect';
+
 import { FirstBlock, MemoizedFirstBlock } from '../components/Block';
+import Dialog from '../components/Dialog';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 export default function Layout({ children }) {
   const [devtoolStatus, setDevtoolStatus] = useState(false);

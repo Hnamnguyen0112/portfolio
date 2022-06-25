@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import DateFormatter from '../DateFormatter';
 
 function BlogCard({ title, date, excerpt, slug }) {

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Switch } from '@headlessui/react';
+
 import { AppContext } from '../../context/state';
 
 export default function Mode() {

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import MainMenu from '../MainMenu';
 
 export default function AboutMe() {

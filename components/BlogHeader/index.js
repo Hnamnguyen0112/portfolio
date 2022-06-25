@@ -1,5 +1,5 @@
-import DateFormatter from '../DateFormatter';
 import CoverImage from '../CoverImage';
+import DateFormatter from '../DateFormatter';
 
 export default function BlogHeader({ title, coverImage, date }) {
   return (

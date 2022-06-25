@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import emailjs from '@emailjs/browser';
+
 import { AppContext } from '../../context/state';
 import NextLink from '../NextLink';
 

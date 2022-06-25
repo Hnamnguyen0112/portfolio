@@ -1,5 +1,5 @@
-import Layout from '../layouts';
 import ComingSoon from '../components/ComingSoon';
+import Layout from '../layouts';
 
 export default function ViewWork() {
   return (
