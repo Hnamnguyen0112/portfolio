@@ -1,0 +1,200 @@
+---
+title: 'Overcoming the microservice dichotomy'
+date: '2022-06-27T01:30:07.322Z'
+excerpt: 'Microservices architectures always have the same problem. It seems we need to choose between harmony and independence. Are we mad to take services built to work together and isolate them when developing?'
+coverImage: '/blogs/golang.jpeg'
+---
+# Introduction
+Microservices architectures always have the same problem. It seems we need to choose between harmony and independence. Are we mad to take services built to work together and isolate them when developing?
+
+On one hand we strive for harmony. After all a microservice is a piece of the puzzle. Without the big picture it is meaningless. It has no value on its own. We want our services to have a flawless communication with the other services. We don’t want to implement http calls every two lines of codes. We don’t want to write the same call to the same service on all services. We want all services to use authentication headers in the same way…. We want to be able to forget about the network layer when writing business logic.
+
+On the other hand, the interconnectivity of our services is slowing us down. We want to be able to develop each services independently. But this is a challenge when a single flow is making many API calls. Running tests across multiple services is a long and complicated process. Even when using a dedicated environment. We need a solution to unit test our code. To remove the dependencies.
+
+In Augury, we have a solution to reconcile the two constraints. Let me show you how we are doing this with some Go examples.
+
+![Golang](/blogs/golang.jpeg)
+
+### Encapsulating services calls
+We are starting our journey with standardisation. To achieve harmony between services. To make sure each service code in Augury feels the same. We have created our own encapsulation of the http package for all our API calls. A library defining how each API calls are made. We use it for internal calls between services. We use it for external calls to third party APIs not providing a sdk. This library we call go-api is solving a lot of issues. API call retries, authentication mechanism, tracing, JSON marshalling … We could have stoped here but abstracting network call is not enough.
+
+By encapsulating http calls we have reached harmony in our network layer. What about business logic? Go-api doesn’t know what is going on inside each service. That’s why there is a second layer. An encapsulation per service. Each service provides a sdk composed of two parts: DTOs and methods. A DTO is a data transfer object. A fancy name for the structs exposed by the service. The methods are the layer above go-api. They implement the call to go-api by adding the endpoint url, the body, the options…
+
+More details on managing common code in this article.
+
+Here is a simplified version of a service’s client providing translation capabilities.
+
+```go title="client.go"
+package translations
+
+import (
+	"context"
+	"github.com/augurysys/go-api/api" // our own http encapsulation
+)
+
+const (
+	url = "http://translations" // don't hardcode urls use env variables
+)
+
+type client struct {
+	api api.Api
+}
+
+type Client interface {
+	TranslateText(ctx context.Context, targetLanguage string, text []string) ([]string, error)
+}
+
+func InitClient(ctx context.Context) (Client, error) {
+	c := new(client)
+	var err error
+
+	c.api, err = api.New(ctx, url)
+	return client, err
+}
+
+type translateTextInputDTO struct {
+	TargetLanguage string   `json:"targetLanguage"`
+	Text           []string `json:"text"`
+}
+
+func (c *client) TranslateText(ctx context.Context, targetLanguage string, text []string) ([]string, error) {
+	endpoint := "/translate_text"
+	body := translateTextInputDTO {
+		TargetLanguage: targetLanguage,
+		Text: text,
+	}
+	var result []string
+
+	request := c.api.NewRequest(ctx, api.MethodPost, endpoint, &result).WithBody(&body)
+	err := request.Exec(ctx)
+	return result, err
+```
+
+Let’s focus on the main advantages of this code:
+
+ - This file provides an Init function not exposing the client itself but an interface.
+ - This client is providing an easy way to call the service, no one needs to know the actual endpoints of the API. Just use the methods to make API calls.
+
+Our client is ready. Let’s use it inside an example.
+
+### A seamless implementation for API Call
+
+We want to use the translation client above to translate an email content. Somewhere inside a service we will have a handler that will look like this.
+
+```go title="email_generation_init_inside.go"
+func GenerateEmail(ctx context.Context, machine models.Machine, language string) ([]string, error) {
+ 	emailContent, err := buildEmailContent(ctx, machine)
+ 	if err != nil {
+		return nil, err
+	}
+
+	translationClient, err := translations.InitClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	translatedEmailContent, err = translationClient.TranslateText(ctx, language, emailContent)
+	if err != nil {
+		return nil, err
+	}
+
+	return translatedEmailContent, nil
+}
+```
+
+In a real production code, the `buildEmailContent` method would not be private and would be covered by unit tests. This is a simplified example.
+
+We have achieved our first goal. The API call to another service is seamless. No explicit API call. No block of code preparing headers to add authentication in the middle of the business logic. The code is simple and elegant. Another developer reading this code can focus on the logic. With this implementation we can decide to switch from JSON to gRPC by bumping the version of the package.
+
+But there is a big BUT. In this configuration `GenerateEmail` cannot be unit tested. Using the translation client is preventing it. Go is not providing tools to intercept a method for example. So how are we going to solve this issue?
+
+### Isolating the service for development
+How are we going to modify the method to be testable? The simple solution is not to initiate the translation client inside the method. Instead the method needs to receive it.
+
+Why do we care about where we initialise the client? This way we will be able to replace the client by a mock client. It will implement the same interface and we are generating it with [mockgen](https://github.com/golang/mock). We use the real translation client on running environment. The mock client on unit tests.
+
+The easiest solution to do this is to pass the client as an argument to the method. It’s easy, but it is ugly. It is ugly because in a complex service, we will have flows needing many clients. Without noticing it, we start to pass a bunch of clients to every methods. It is becoming a chaos.
+
+A more elegant solution is to use the context to pass the client. To cite the golang documentation on [context](https://pkg.go.dev/context): “_Use context Values only for request-scoped data that transits processes and APIs, not for passing optional parameters to functions._”
+
+Passing the client via the context is an acceptable convention. A simple method setting all the needed clients into the context is needed. API calls will use this method in a middleware. Event based process from pub/sub queues will have a similar implementations. We need to make sure it will be a pre-requisite for our methods. When testing, we will prepare a custom context, with the needed mock clients.
+
+To achieve this we need to add two methods to our client.
+
+```go title="transaltion_ctx.go"
+const translationsClientKey = "translations"
+
+func SetTranslationsClient(ctx context.Context, c Client) context.Context {
+	return context.WithValue(ctx, translationsClientKey, c)
+}
+
+func GetTranslationsClient(ctx context.Context) (Client, error) {
+	_client := ctx.Value(translationsClientKey)
+
+	if client, ok := _client.(Client); ok {
+		return client, nil
+	} else {
+		return nil, errors.New("client not in context")
+	}
+}
+```
+
+You will notice the setter and getter are using the interface and not the struct. It is because both our client and our mock client are implementing the same interface. The setter and the getter is compatible for both. Our `GenerateEmail` will have a new implementation:
+
+```go title="email_generation_init_outside.go"
+func GenerateEmail(ctx context.Context, machine models.Machine, language string) ([]string, error) {
+ 	emailContent, err := buildEmailContent(ctx, machine)
+ 	if err != nil {
+		return nil, err
+	}
+
+	translationClient, err := translations.GetTranslationsClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	translatedEmailContent, err = translationClient.TranslateText(ctx, language, emailContent)
+	if err != nil {
+		return nil, err
+	}
+
+	return translatedEmailContent, nil
+}
+```
+
+Now that our method is working with the client it is provided, we can unit test it.
+
+### A perfect unit test
+
+The new implementation will allow this simple unit test.
+
+```go title="test_email.go"
+func TestEmptyEmailOnEmptyMachine(t *testing.T) {
+ 	// creating a context from scratch
+	ctx := context.Background()
+	// initializing a mock controller and client
+ 	mockCtrl := gomock.NewController(t)
+ 	translationsClient := mockTranslations.NewMockClient(mockCtrl)
+	// setting expectation and return values
+ 	translationsClient.EXPECT().TranslateText(gomock.Any(), "en", []string{}).Return([]string{}, nil)
+	// adding the mock client to the ctx
+	ctx := translations.SetTransalationsClient(ctx, translationsClient)
+
+	// testing that if the machine model is empty nothing is being generated
+	emailContent, err := GenerateEmail(ctx, models.Machine{}, "en")
+ 	assert.Nil(t, err)
+ 	assert.Equal(t, 0, len(emailContent))
+}
+```
+
+We have mocked the API call, the test can run in isolated environment. With this solution we can write complex logic in a service and test it in milliseconds. Working this way has a huge impact on velocity.
+
+Using API encapsulation, we have solved two major downsides of microservices. The communication is harmonious. The services can be isolated. Without compromising our code or our architecture. Our services are working together while we have full control of each one.
+
+We still need integration tests to ensure good communication between services. We don’t rely on them to test internal behaviour of our service.
+
+Encapsulating APIs is only a fraction of the hexagonal architecture. [Hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) allows us to write code decoupled from our infrastructure. We use the same logic for asynchronous communication, Databases, caches…
+
+It took us time to fine tune the boundaries between services, clients and go-api. Some of the questions are still being debated. Should the mocked responses defined in the service using the client or in the client? Should the client has its own repository or sit in its service repo? I would be happy to get feedback of your own implementation and how you solved this issues.
+
+Source: Jeremie Zazoun
