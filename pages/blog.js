@@ -8,7 +8,7 @@ export default function Blog({ posts }) {
     <Layout>
       {posts.length > 0 ? (
         <div className="container mx-auto min-h-[calc(100vh-163px)] px-5 animate-fade-in-down">
-          <h1 className="mt-14 mb-12 font-bold text-3xl">Latest Posts</h1>
+          <h1 className="pt-10 font-bold text-3xl">Latest Posts</h1>
           {posts.map((post) => (
             <BlogCard
               key={post.data.title}
@@ -30,7 +30,7 @@ export default function Blog({ posts }) {
 
 export const getStaticProps = () => {
   const posts = getAllPosts();
-  console.log(posts);
+
   return {
     props: {
       posts,

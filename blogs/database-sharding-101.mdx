@@ -1,0 +1,42 @@
+---
+title: 'Database Sharding 101'
+date: '2022-06-26T05:35:07.322Z'
+excerpt: 'This blog is part of the series where we discuss 101 concepts from Ground Zero for an audience that has limited starting knowledge. This article comes in the Intermediate-Level Series since it involves understanding the of Database Sharding which is primarily used for distributing data in a single node across multiple partitioned nodes for better scalability and performance of the business application.'
+coverImage: '/blogs/database-sharding.png'
+---
+
+# Introduction
+This blog is part of the series where we discuss 101 concepts from **Ground Zero** for an audience that has limited starting knowledge. This article comes in the **Intermediate-Level** Series since it involves understanding the of **Database Sharding** which is primarily used for distributing data in a single node across multiple partitioned nodes for better scalability and performance of the business application.
+### What is Sharding?
+Sharding is a design pattern in which large databases are divided into multiple nodes, with each node serving data for a subset of customers/entities logically partitioned by a key/id. Some of the reasons for partitioning databases are **vertical storage limits on single servers, slow performance due to high concurrency needs, having geographically co-located nodes to better end to end latency to serve customers.**
+
+By distributing data into multiple shards, large scale distributed applications can build long terms resiliency against present and future growing data needs which are limited by premium SKU’s of Cloud Hosted databases.
+
+### Sharding Techniques
+Different logical techniques are used to decide to find the correct shard for an end-2-end customer request. The key which helps makes this decision is referred as the [Shard key](https://www.mongodb.com/docs/manual/core/sharding-shard-key/) and should be a static field across the journey in production. Shard keys can be singular or composite based on the needs.
+
+Numerous factors such as the **frequency of database lookup, cost of added shards in latter stages** etc are considered before producing an apt strategy for the overall sharding strategy. Independent of the techniques, two key principles which are warned — **avoiding data migration between shards and distributing a single tenant data over multiple shards.** Some of the common techniques are as follows
+
+### Range Strategy
+In Range strategy, entities belonging to a particular **range(1-N)** are served by a given shard. This is used for grouping related entities together. Ex **Customer transactions** based on date range are served using the same shard, hence fetching monthly aggregate reports is simplified by querying single nodes.
+![Range Sharding](blogs/range-sharding.jpeg)
+It is easier to implement and range queries are suited for **batch operations** for business use-cases. However, this strategy does not guarantee optimal traffic distribution across the shards and some of the nodes may serve large multipliers of customer traffic.
+
+### Lookup Strategy
+**Lookup** or also referred as **Directory** based approach uses a look-up table to identify the correct shard for a given database entity. A good use-case for this strategy would be having **Tenant-based databases** served by a common platform. The look-up table is modified as tenants are added/removed from the platform.
+![Lookup Strategy](blogs/lookup-strategy.jpeg)
+An easy to implement approach, however this approach has an additional overhead of the **shard lookup step** which may impact end-2-end latency. In case of **shared tenants** in the same shard, it is advised to keep an additional virtual shard mapping to minimise the impact of **shard rebalancing**.
+
+### Hash Strategy
+This strategy uses a hash-based function, which takes customer attributes such as **name, client IP, geo location** etc to evaluate the optimal shard for the same. Its primary objective is to **uniformly distribute** the overall TPS into the N shards to achieve efficient utilisation of resources.
+![Hash Strategy](blogs/hash-strategy.jpeg)
+Just as a lookup approach, it has limitations on additional network overhead for hash computation as well as rebalancing hash issue. However, using a [Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing) scheme can help overcome the latter limitation.
+
+### Summary
+Sharding serves an optimisation system database design approach to scale distributed design patterns beyond the vertical limits of Cloud offerings. Clubbed effectively with a proximity based geographical shard distribution, it minimises outage **blast radius and better latency.** Most of the Cloud offerings such as AWS, Azure etc have used sharding as core principle to build their multi-region native database solutions as [AWS Aurora](https://aws.amazon.com/vi/rds/aurora/), [Azure Cosmos](https://azure.microsoft.com/en-in/services/cosmos-db/#overview) etc which solves for operational overhead of managing multiple nodes by the engineering teams.
+
+We will look to cover a deep dive of one of the Cloud Native Database architectures in a future Advanced Blog of the series.
+
+We will look to cover a deep dive of one of the Cloud Native Database architectures in a future Advanced Blog of the series.
+
+Source: Amit Raj
