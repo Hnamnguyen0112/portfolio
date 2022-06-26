@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     if (
       !/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
     ) {
-      // setDevtoolStatus(event.detail.isOpen);
+      setDevtoolStatus(event.detail.isOpen);
     }
   };
 

@@ -43,6 +43,8 @@ export default function BlogDetail({ data, content, slug, readingTime }) {
             <article className="animate-fade-in-down">
               <Head>
                 <title>{data.title}</title>
+                <meta property="og:title" content={data.title} />
+                <meta property="og:description" content={data.excerpt} />
                 <meta property="og:image" content={data.url} />
               </Head>
               <BlogHeader
