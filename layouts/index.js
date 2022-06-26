@@ -39,15 +39,8 @@ export default function Layout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&amp;display=swap"
         />
-        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
-        <meta property="og:title" content="Nam Nguyen Portfolio" />
-        <meta
-          property="og:image"
-          content="https://namnguyen.io/bongo-trim.png"
-        />
-        <meta property="og:description" content="Thanks for coming" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://namnguyen.io" />
+        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
       </Head>
       {!devtoolStatus && (
         <>

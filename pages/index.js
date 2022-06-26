@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import AboutMe from '../components/AboutMe';
 import Contact from '../components/Contact';
 import Skill from '../components/Skill';
@@ -75,6 +77,15 @@ const skill = {
 export default function Home() {
   return (
     <Layout>
+      <Head>
+        <meta property="og:title" content="Nam Nguyen Portfolio" />
+        <meta
+          property="og:image"
+          content="https://namnguyen.io/bongo-trim.png"
+        />
+        <meta property="og:description" content="Thanks for coming" />
+        <meta property="og:url" content="https://namnguyen.io" />
+      </Head>
       <AboutMe />
       <Skill skill={skill} />
       <Contact />
