@@ -43,10 +43,21 @@ export default function BlogDetail({ data, content, slug, readingTime }) {
             <article className="animate-fade-in-down">
               <Head>
                 <title>{data.title}</title>
+                <meta
+                  property="og:image"
+                  content={`https://namnguyen.io${data.coverImage}`}
+                />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:type" content="article" />
                 <meta property="og:title" content={data.title} />
                 <meta property="og:description" content={data.excerpt} />
-                <meta property="og:image" content={`https://namnguyen.io${data.coverImage}`} />
-
+                <meta
+                  property="og:url"
+                  content={`https://namnguyen.io/${slug}`}
+                />
+                <meta property="og:site_name" content="Nam Nguyen Blog" />
+                <meta property="og:updated_time" content={data.date} />
+                <link rel="canonical" href={`https://namnguyen.io/${slug}`} />
               </Head>
               <BlogHeader
                 title={data.title}

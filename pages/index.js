@@ -85,6 +85,7 @@ export default function Home() {
         />
         <meta property="og:description" content="Thanks for coming" />
         <meta property="og:url" content="https://namnguyen.io" />
+        <link rel="canonical" href="https://namnguyen.io" />
       </Head>
       <AboutMe />
       <Skill skill={skill} />
