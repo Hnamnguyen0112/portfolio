@@ -45,7 +45,8 @@ export default function BlogDetail({ data, content, slug, readingTime }) {
                 <title>{data.title}</title>
                 <meta property="og:title" content={data.title} />
                 <meta property="og:description" content={data.excerpt} />
-                <meta property="og:image" content={`https://namnguyen.io/blogs/${data.url}`} />
+                <meta property="og:image" content={`https://namnguyen.io${data.coverImage}`} />
+
               </Head>
               <BlogHeader
                 title={data.title}
