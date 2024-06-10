@@ -11,9 +11,9 @@ export default function AboutMe() {
       <div className="basis-1/3 mx-auto">
         <Image
           priority
-          src={'/avatar.png'}
+          src={'/avatar.jpg'}
           alt="avatar"
-          className="rounded-3xl"
+          className="rounded-3xl object-cover"
           width={400}
           height={400}
         />
