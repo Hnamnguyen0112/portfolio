@@ -23,7 +23,7 @@ export default function Header() {
             <div>
               <NextLink href="/" className="flex items-center py-4 px-2">
                 <span className="font-medium text-black text-lg">
-                  Nam Nguyen
+                  Alex Nguyen
                 </span>
               </NextLink>
             </div>

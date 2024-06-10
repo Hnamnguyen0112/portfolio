@@ -18,7 +18,7 @@ export default function MainMenu() {
         <i className="text-2xl md:text-3xl devicon-linkedin-plain colored" />
       </a>
       <a
-        href="https://twitter.com/_alexnguyennn"
+        href="https://twitter.com/alexth0112"
         rel="noreferrer"
         target="_blank"
         className="transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 text-sm font-medium flex py-2 rounded-xl align-middle"

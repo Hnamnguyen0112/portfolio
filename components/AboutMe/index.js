@@ -22,11 +22,13 @@ export default function AboutMe() {
         <MainMenu />
         <p className="md:mx-8 mt-5 text-5xl mb-4 font-medium text-black flex">
           Hi,
-          <br /> I&apos;m Nam! <span className="animate-waving-hand">👋🏻</span>
+          <br /> I&apos;m Alex! <span className="animate-waving-hand">👋🏻</span>
         </p>
-        <p className="md:mx-4 text-lg lg:text-2xl font-light tracking-wide leading-relaxed">
-          I’m a 25-year-old software engineer from Saigon, Vietnam. I write
-          code, organize projects, and play Valorant.
+        <p className="md:mx-4 text-lg font-light tracking-wide leading-relaxed">
+          A 27-year-old tech industry professional with a strong background in
+          Software Engineering.
+          <br />
+          <br />
         </p>
       </div>
     </div>

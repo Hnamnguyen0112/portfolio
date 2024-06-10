@@ -51,7 +51,7 @@ const experience = [
 const skill = {
   tech: [
     { icon: 'devicon-go-plain', name: 'Go' },
-    { icon: 'devicon-laravel-plain', name: 'Laravel' },
+    { icon: 'devicon-nextjs-plain', name: 'NextJS' },
     { icon: 'devicon-mysql-plain', name: 'MySQL' },
     { icon: 'devicon-nestjs-plain', name: 'NestJS' },
     { icon: 'devicon-nodejs-plain', name: 'NodeJS' },
@@ -59,7 +59,7 @@ const skill = {
     { icon: 'devicon-react-original', name: 'ReactJS' },
     { icon: 'devicon-tailwindcss-plain', name: 'Tailwindcss' },
     { icon: 'devicon-storybook-plain', name: 'Storybook' },
-    { icon: 'devicon-vuejs-plain', name: 'VueJS' },
+    { icon: 'devicon-postgresql-plain', name: 'PostgreSQL' },
     { icon: 'devicon-graphql-plain', name: 'GraphQL' },
   ],
   tool: [

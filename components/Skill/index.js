@@ -6,13 +6,20 @@ export default function Skill(props) {
       <div className="basis-1/3 px-5 xl:p-0 animate-fade-in-left">
         <p className="text-4xl mb-4 font-normal text-black">My Career So Far</p>
         <p className="font-light tracking-wide leading-relaxed text-justify">
-          Always up for a challenge, I have worked for lean companies. With over
-          years of experience, I worked my way up to Fullstack Engineer at B13
-          Technology where I developed 10+ webapps. Currently, I build and
-          develop web applications at NFQ.
+          As the Co-Founder of Annotab AI, an advanced AI Annotation Tool, I
+          leads the development of transformative solutions in data annotation.
+          <br />
+          <br />
+          Alongside this entrepreneurial role, I serves as a Lead Software
+          Engineer for several side projects, demonstrating a deep passion for
+          technology and innovation.
+          <br />
+          <br /> Known for pushing the boundaries of the digital landscape, I
+          combines technical expertise with visionary leadership to drive
+          success across various ventures.
         </p>
       </div>
-      <div className="basis-2/3 p-4 animate-fade-in-right">
+      <div className="basis-2/3 p-4 animate-fade-in-right my-auto">
         <div className="w-full justify-center flex flex-wrap gap-x-4 gap-y-2">
           {tool &&
             !!tool.length &&
