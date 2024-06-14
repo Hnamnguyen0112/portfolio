@@ -139,6 +139,14 @@ export default function Contact() {
           >
             Send Message
           </button>
+          <NextLink
+            href="/alex-nguyen.pdf"
+            className="sm:mt-0 uppercase text-sm font-bold tracking-wide bg-cyan-600 p-3 rounded-lg focus:outline-none focus:shadow-outline text-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download my resume
+          </NextLink>
         </div>
       </form>
 
